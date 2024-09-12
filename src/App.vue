@@ -1,24 +1,34 @@
 <template>
   <NavbarView/>
-  
-  <img src="@/assets/tablaempanada.png" class="img-fluid" alt="..." width="100%" height="300px">
-
+  <HeroSection/>
+  <CardView/>
   <router-view/>
 </template>
 
 <script>
 import NavbarView from '@/components/NavbarView.vue'
+import HeroSection from './components/HeroSection.vue';
+import CardView from './components/CardView.vue';
 
 
 export default {
   name: 'App',
   components: {
     NavbarView,
-  
+    HeroSection,
+    CardView,
   }
 }
 </script>
 
 <style>
-
+#app{
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(to right,#1C161D, #fff07c);
+}
 </style>

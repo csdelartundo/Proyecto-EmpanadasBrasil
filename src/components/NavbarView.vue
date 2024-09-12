@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-      <img class="logo ps-5" src="@/assets/elchileno-removebg-preview.png" alt="Bootstrap" width="300" height="100">
+      <img class="logo ps-5" src="@/assets/img/elchileno-removebg-preview.png" alt="Bootstrap" width="300" height="100">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -16,7 +16,7 @@
           <a class="nav-link" href="#">Productos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Destinos</a>
+          <a class="nav-link" href="#">Nuestro Origen</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Contacto</a>
