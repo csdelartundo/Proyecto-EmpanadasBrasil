@@ -1,13 +1,12 @@
 <template>
   <NavbarView/>
-  <HeroSection/>
-  <CardView/>
   <router-view/>
+  <CardView/>
+  
 </template>
 
 <script>
 import NavbarView from '@/components/NavbarView.vue'
-import HeroSection from './components/HeroSection.vue';
 import CardView from './components/CardView.vue';
 
 
@@ -15,7 +14,6 @@ export default {
   name: 'App',
   components: {
     NavbarView,
-    HeroSection,
     CardView,
   }
 }
@@ -29,6 +27,6 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background: #1C161D;
+  /* background: #1C161D; */
 }
 </style>

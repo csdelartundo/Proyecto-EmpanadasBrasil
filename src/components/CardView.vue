@@ -1,24 +1,35 @@
 <template>
-    <div class="card">
-        <div class="image-box">
-            <img src="../assets/img/tablaempanada.png" alt="...">
-        </div>
-        <div class="content">
-            <h3>Disfruta de nuestras 3 variedades!</h3>
-            <p>Con ingredientes naturales, sin colorantes artificiales</p>
-            <a href="#" class="btn btn-warning btn-sm">Hacer Pedido</a>
+    <div class="container">
+        <div class="card">
+            <div class="image-box">
+                <img src="../assets/img/tablaempanada.png" alt="...">
+            </div>
+            <div class="content">
+                <h3>Disfruta de nuestras 3 variedades!</h3>
+                <p>Con ingredientes naturales, sin colorantes artificiales</p>
+                <a href="#" class="btn btn-warning btn-sm">Hacer Pedido</a>
+            </div>
         </div>
     </div>
 
-
 </template>
 <style scoped>
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+    padding: 20px;
+    margin-top: 20px;
+}
+
 .card {
-    width: 400px;
+    width: 500px;
     aspect-ratio: 1 / 0.7;
     border-radius: 8px;
     position: relative;
-    height: 254px;
+    height: 300px;
     cursor: pointer;
 }
 
@@ -68,6 +79,7 @@
 }
 
 .card:hover .content {
-    opacity: 1; /* Muestra el contenido cuando se hace hover */
+    opacity: 1;
+    /* Muestra el contenido cuando se hace hover */
 }
 </style>
