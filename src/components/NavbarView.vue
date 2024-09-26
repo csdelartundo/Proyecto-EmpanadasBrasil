@@ -30,7 +30,7 @@
 <style scoped>
 
 .navbar {
-  background: linear-gradient(to right,#1C161D, #fff07c)
+  background-color: transparent;
 }
 
 

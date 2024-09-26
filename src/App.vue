@@ -29,6 +29,6 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background: linear-gradient(to right,#1C161D, #fff07c);
+  background: #1C161D;
 }
 </style>

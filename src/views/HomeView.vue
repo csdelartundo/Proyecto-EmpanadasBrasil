@@ -5,10 +5,5 @@
     </div>
   </template>
   
-  <script>
-  export default {
-    name: 'HomeView',
-    // Tu lógica aquí
-  }
-  </script>
+
   
