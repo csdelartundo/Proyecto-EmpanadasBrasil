@@ -2,7 +2,7 @@
   <div class="herosection-container text-center d-flex flex-column justify-content-center align-items-center">
       <div class="row justify-content-center align-items-center w-100 position-relative">
           <div class="col-lg-2">
-            <img class="logochile ps-5" src="@/assets/img/mapachile.png" alt="Mapa de Chile">
+            <img class="logochile ps-5" src="@/assets/img/chilecanva1bg.png" alt="Mapa de Chile">
           </div>
           <div class="col-lg-5 text-center">
               <h1 class="mt-5 pt-5 text-white fw-bold">Empanadas Chilenas</h1>
@@ -25,7 +25,8 @@
 
 <style scoped>
 .herosection-container {
-  background: linear-gradient(135deg, #1C161D, #38324A);
+  background: linear-gradient(to right, #38324A, #1C161D);
+
   padding: 20px;
   position: relative; /* Aseguramos que los elementos posicionados se refieran a este contenedor */
 }

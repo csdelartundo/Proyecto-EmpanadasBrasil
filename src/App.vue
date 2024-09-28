@@ -1,21 +1,22 @@
 <template>
   <NavbarView/>
-  <HomeView/>
-  <router-view/>
-  <!-- <CardView/> -->
-  
+  <HomeView>
+    <router-view/>
+  </HomeView>
+  <FooterView/>
 </template>
 
 <script>
-import NavbarView from '@/components/NavbarView.vue'
-// import CardView from './components/CardView.vue';
-
+import NavbarView from '@/components/NavbarView.vue';
+import HomeView from './views/HomeView.vue';
+import FooterView from './components/FooterView.vue';
 
 export default {
   name: 'App',
   components: {
     NavbarView,
-    // CardView,
+    HomeView,
+    FooterView,
   }
 }
 </script>
