@@ -1,80 +1,69 @@
 <template>
-<nav>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a href="#">
-                <img class="logo" src="@/assets/img/elchileno-removebg-preview.png" alt="Logo">
+            <a class="navbar-brand" href="#">
+                <img class="logo" src="@/assets/img/elchileno-removebg-preview.png" alt="Logo" />
             </a>
-            <ul>
-                <li><a href="#" class="link">Inicio</a></li>
-                <li><a href="#" class="link">Productos</a></li>
-                <li><a href="#" class="link">Nuestro Origen</a></li>
-                <li><a href="#" class="link">Contacto</a></li>
-            </ul>
+            <button
+                class="navbar-toggler"
+                type="button"
+                @click="isMenuOpen = !isMenuOpen" 
+                aria-controls="navbarNav"
+                aria-expanded="isMenuOpen"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Menu items -->
+            <div class="collapse navbar-collapse" :class="{ show: isMenuOpen }" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item" @click="closeMenu">
+                        <router-link class="nav-link" to="/">Inicio</router-link>
+                    </li>
+                    <li class="nav-item" @click="closeMenu">
+                        <router-link class="nav-link" to="/productos">Productos</router-link>
+                    </li>
+                    <li class="nav-item" @click="closeMenu">
+                        <router-link class="nav-link" to="/origen">Nuestro Origen</router-link>
+                    </li>
+                    <li class="nav-item" @click="closeMenu">
+                        <router-link class="nav-link" to="/contacto">Contacto</router-link>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 </template>
 
+<script>
+export default {
+    data() {
+        return {
+            isMenuOpen: false, // Controlamos el estado del menú
+        };
+    },
+    methods: {
+        closeMenu() {
+            this.isMenuOpen = false; // Cierra el menú cuando se selecciona una opción
+        },
+    },
+};
+</script>
+
+
+
 <style scoped>
-nav {
-    background: #1C161D;
-    height: 70px; /* Altura ajustada del navbar */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 1000;
+.logo {
+    width: 200px;
+    height: auto;
+}
+
+/* Aseguramos que el navbar esté fijo en la parte superior */
+.navbar {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
-/* Contenedor del navbar */
-.container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 0 2rem;
+.collapse.show {
+    display: block !important;
 }
 
-/* Estilos del logo */
-.logo {
-    width: 250px;
-    height: auto;
-    padding: 10px;
-}
-
-/* Estilos de los links del navbar */
-ul {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.link {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    position: relative;
-}
-
-.link::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background: white;
-    bottom: 0;
-    left: 0;
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.5s ease;
-}
-
-.link:hover::before {
-    transform: scaleX(1);
-    transform-origin: left;
-}
 </style>

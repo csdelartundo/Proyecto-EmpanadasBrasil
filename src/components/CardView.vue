@@ -1,85 +1,120 @@
 <template>
     <div class="container">
-        <div class="card">
-            <div class="image-box">
-                <img src="../assets/img/tablaempanada.png" alt="...">
-            </div>
-            <div class="content">
-                <h3>Disfruta de nuestras 3 variedades!</h3>
-                <p>Con ingredientes naturales, sin colorantes artificiales</p>
-                <a href="#" class="btn btn-warning btn-sm">Hacer Pedido</a>
+        <h1 class="card-title">Conoce nuestras variedades!</h1>
+        <p class="card-subtitle">
+            Disfruta nuestras deliciosas empanadas, sin colorantes artificiales e
+            ingredientes cuidadosamente seleccionados.
+        </p>
+        <div class="row">
+            <div v-for="(item, index) in cards" :key="index" class="col-12 col-md-6 col-lg-4 mb-4 d-flex">
+                <div class="card">
+                    <div class="image-box">
+                        <img :src="item.image" :alt="item.title" class="card-img-top" />
+                    </div>
+                    <div class="content d-flex flex-column justify-content-center align-items-center p-3">
+                        <h3>{{ item.title }}</h3>
+                        <p>{{ item.description }}</p>
+                        <a href="#" class="btn btn-warning btn-md mt-auto">Hacer Pedido</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            cards: [
+                {
+                    title: "Empanada de Pino",
+                    description:
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non pulvinar nisi, at ultricies felis. Donec vel velit at mauris elementum pellentesque.",
+                    image: require('@/assets/img/empanada.jpg'),
+                },
+                {
+                    title: "Empanada de Pollo",
+                    description:
+                        "Sed vel ligula vel justo iaculis aliquet. Sed vel dolor non urna sodales lobortis. Sed convallis, dolor vitae commodo consectetur, metus diam ultrices lectus.",
+                    image: require('@/assets/img/emppollo.jpg'),
+                },
+                {
+                    title: "Empanada de Palmito",
+                    description:
+                        "Proin vel ante non ligula facilisis consectetur. Nulla facilisi. Sed convallis, dolor vitae commodo consectetur, metus diam ultrices lectus.",
+                    image: require('@/assets/img/emppalmito.jpg'),
+                },
+            ],
+        };
+    },
+};
+</script>
+
 <style scoped>
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f8f9fa;
-    padding: 20px;
-    margin-top: 20px;
+    background-color: #46434e;
+    padding: 50px;
+}
+
+.card-title {
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.card-subtitle {
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .card {
-    width: 500px;
-    aspect-ratio: 1 / 0.7;
     border-radius: 8px;
-    position: relative;
+    overflow: hidden;
+    flex-grow: 1;
+    background-color: #1C161D;
+    transition: transform 0.3s ease-in-out; /* Animación suave para el escalado */
+}
+
+/* Escala levemente más pequeña en pantallas grandes */
+@media (min-width: 992px) {
+    .card {
+        transform: scale(0.9); /* Reduce levemente el tamaño en pantallas grandes */
+        max-width: 450px; /* Limita el ancho en pantallas grandes */
+    }
+}
+
+/* En pantallas pequeñas, el tamaño es 100% del contenedor */
+@media (max-width: 991px) {
+    .card {
+        width: 100%; /* Ocupa todo el ancho en pantallas pequeñas */
+    }
+}
+
+.image-box img {
+    width: 100%;
     height: 300px;
-    cursor: pointer;
-}
-
-.card .image-box {
-    width: 100%;
-    height: 100%;
-    border-radius: inherit;
-}
-
-.card .image-box img {
-    width: 100%;
-    height: 100%;
     object-fit: cover;
-    object-position: 50% 90%;
-    border-radius: inherit;
     transition: 0.5s ease-in-out;
 }
 
-.card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border: 2px solid white;
-    border-radius: inherit;
-    opacity: 0;
-    transition: 0.4s ease-in-out;
-}
-
-.card:hover img {
-    filter: grayscale(1) brightness(0.4);
-}
-
-.card:hover::after {
-    opacity: 1;
-    inset: 20px;
-}
-
 .content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
     color: white;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.card:hover .content {
-    opacity: 1;
-    /* Muestra el contenido cuando se hace hover */
+.content h3 {
+    margin-bottom: 10px;
+}
+
+.content p {
+    margin-bottom: 20px;
 }
 </style>

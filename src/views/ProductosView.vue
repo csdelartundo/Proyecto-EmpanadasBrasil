@@ -1,15 +1,27 @@
 <template>
-  <div>
-    <!-- Contenido del componente -->
-    <h1>Productos</h1>
-    <p>Lista de productos disponibles.</p>
+  <div class="prod-container">
+    <CardView/>
   </div>
 </template>
 
 <script>
+import CardView from '@/components/CardView.vue'
+
 export default {
   name: 'ProductosView',
-  // Tu lógica aquí
+  components: {
+    CardView,
+  }
 }
 </script>
+
+<style scoped>
+.prod-container{
+  margin-top: 20px;
+  text-align: center;
+  background: #38324A;
+  height: auto;
+  padding: 0px;
+}
+</style>
 
