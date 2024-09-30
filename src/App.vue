@@ -1,6 +1,6 @@
 <template>
   <NavbarView/>
-  <router-view/> <!-- Aquí se renderizan dinámicamente las vistas según la ruta -->
+  <router-view/> 
   <FooterView/>
 </template>
 

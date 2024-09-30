@@ -1,3 +1,7 @@
+<script setup>
+import QuienesSomos from '@/components/QuienesSomos.vue';
+</script>
+
 <template>
-<h1>hola</h1>
+    <QuienesSomos/>
 </template>
