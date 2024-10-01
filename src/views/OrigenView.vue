@@ -11,13 +11,12 @@ import QuienesSomos from '@/components/QuienesSomos.vue';
 <style>
 .container-fluid{
     padding: 20px;
-    background-color: #f5f5f5;
-    min-height: 100vh;
+    background-color: #38324A;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     text-align: center;
- 
+
 }
 </style>

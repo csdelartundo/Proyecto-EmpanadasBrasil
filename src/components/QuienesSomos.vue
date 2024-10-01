@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container-carousel">
         <h1>¿Quienes Somos?</h1>
         <p>En El Chileno, nos especializamos en traer el auténtico sabor de las empanadas chilenas a Maceió, Alagoas.
             Con una combinación perfecta entre la tradición chilena y la frescura de los ingredientes brasileños,
@@ -16,6 +16,10 @@
                 :class="['carousel-item', { active: index === 0 }]">
                 <img :src="item.image" class="d-block w-100 img-fluid" :alt="item.title">
                 <div class="carousel-caption d-none d-md-block">
+                    <h5>{{ item.title }}</h5>
+                    <p>{{ item.description }}</p>
+                </div>
+                <div class="carousel-caption-below">
                     <h5>{{ item.title }}</h5>
                     <p>{{ item.description }}</p>
                 </div>
@@ -85,22 +89,69 @@ export default {
 
 <style scoped>
 /* Centrar el carrusel en la pantalla */
+.container-carousel {
+    text-align: center;
+    padding-top: 100px;
+    color: #fff;
+}
+
 #carouselExample {
     width: 60%;
     margin: 0 auto;
 }
 
-/* Asegurarse de que las imágenes ocupen el 100% del ancho del carrusel */
+/* Asegurarse de que las imágenes ocupen el 100% del ancho del carrusel y mantener calidad */
 .carousel-item img {
     width: 100%;
-    height: 400px;
-    object-fit: cover;
+    height: 500px;
+    object-fit: cover; /* Asegura que las imágenes cubran el área sin distorsión */
 }
 
-/* Ajustar el texto de las leyendas */
+/* Texto superpuesto sobre la imagen (pantallas grandes) */
 .carousel-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
     border-radius: 5px;
+    color: #fff;
+}
+
+/* Texto debajo de la imagen (oculto en pantallas grandes) */
+.carousel-caption-below {
+    display: none;
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+    /* Carrusel ocupa todo el ancho en móviles */
+    #carouselExample {
+        width: 100%;
+    }
+
+    /* Ajusta la altura de la imagen en móviles */
+    .carousel-item img {
+        height: 300px;
+        object-fit: cover;
+    }
+
+    /* Esconder el texto superpuesto en móviles */
+    .carousel-caption {
+        display: none;
+    }
+
+    /* Mostrar el texto debajo de la imagen en móviles */
+    .carousel-caption-below {
+        display: block;
+        text-align: center;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
 }
 </style>
