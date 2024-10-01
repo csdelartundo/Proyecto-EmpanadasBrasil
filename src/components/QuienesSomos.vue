@@ -1,5 +1,5 @@
 <template>
-    <div class="container-origin text-center">
+    <div class="container">
         <h1>¿Quienes Somos?</h1>
         <p>En El Chileno, nos especializamos en traer el auténtico sabor de las empanadas chilenas a Maceió, Alagoas.
             Con una combinación perfecta entre la tradición chilena y la frescura de los ingredientes brasileños,
@@ -8,45 +8,27 @@
             Cristian, chileno, y Lúcy, brasileña, unimos nuestras pasiones para ofrecer una experiencia única, donde
             cada empanada es elaborada con dedicación y sabor auténtico. ¡Ven y descubre el verdadero sabor de Chile con
             un toque brasileño!</p>
+            <h5>A continuacion, te dejamos unos destinos imperdibles de Chile!</h5>
     </div>
-    <div class="carousel-container d-flex justify-content-center align-items-center">
-        <div id="carouselExampleCaptions" class="carousel slide w-75">
-            <!-- Indicadores dinámicos -->
-            <div class="carousel-indicators">
-                <button 
-                    v-for="(slide, index) in slides" 
-                    :key="'indicator-' + index" 
-                    :class="{'active': index === activeIndex}" 
-                    :data-bs-target="'#carouselExampleCaptions'" 
-                    :data-bs-slide-to="index" 
-                    aria-current="true" 
-                    :aria-label="'Slide ' + (index + 1)">
-                </button>
-            </div>
-
-            <!-- Carrusel dinámico con v-for -->
-            <div class="carousel-inner">
-                <div 
-                    v-for="(slide, index) in slides" 
-                    :key="'slide-' + index" 
-                    :class="['carousel-item', { active: index === activeIndex }]">
-                    <img :src="slide.image" class="d-block w-100" alt="Imagen de empanada">
-                    <div class="carousel-caption d-block">
-                        <h5>{{ slide.title }}</h5>
-                        <p>{{ slide.description }}</p>
-                    </div>
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div v-for="(item, index) in carouselItems" :key="index"
+                :class="['carousel-item', { active: index === 0 }]">
+                <img :src="item.image" class="d-block w-100 img-fluid" :alt="item.title">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>{{ item.title }}</h5>
+                    <p>{{ item.description }}</p>
                 </div>
             </div>
-
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev" @click="prevSlide">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next" @click="nextSlide">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
 </template>
 
@@ -54,64 +36,71 @@
 export default {
     data() {
         return {
-            activeIndex: 0,
-            slides: [
+            carouselItems: [
                 {
-                    image: require('../assets/img/empanada.jpg'),
-                    title: 'Empanada Tradicional',
-                    description: 'Empanada chilena tradicional con carne y cebolla.',
+                    image: require('../assets/img/fotosanpedro.jpg'),
+                    title: 'San Pedro de Atacama',
+                    description: 'Descripción 1'
                 },
                 {
-                    image: require('../assets/img/empanada.jpg'),
-                    title: 'Empanada de Mariscos',
-                    description: 'Deliciosa empanada rellena de mariscos frescos.',
+                    image: require('../assets/img/fotovalleelqui.jpg'),
+                    title: 'Valle del Elqui',
+                    description: 'Descripción 2'
                 },
                 {
-                    image: require('../assets/img/empanada.jpg'),
-                    title: 'Empanada de Queso',
-                    description: 'Empanada con relleno de queso derretido.',
+                    image: require('../assets/img/fotosietetazas.jpg'),
+                    title: 'Parque Nacional Siete Tazas',
+                    description: 'Descripción 3'
                 },
-            ],
-        };
-    },
-    methods: {
-        nextSlide() {
-            this.activeIndex = (this.activeIndex + 1) % this.slides.length;
-        },
-        prevSlide() {
-            this.activeIndex = (this.activeIndex - 1 + this.slides.length) % this.slides.length;
-        },
-    },
-};
+                {
+                    image: require('../assets/img/fotoislapascua.jpg'),
+                    title: 'Isla de Pascua',
+                    description: 'Descripción 3'
+                },
+                {
+                    image: require('../assets/img/fotochillan.jpg'),
+                    title: 'Termas de Chillán',
+                    description: 'Descripción 3'
+                },
+                {
+                    image: require('../assets/img/fotopucon.jpg'),
+                    title: 'Pucon',
+                    description: 'Descripción 3'
+                },
+                {
+                    image: require('../assets/img/fotosalto.jpg'),
+                    title: 'Salto del Petrohue',
+                    description: 'Descripción 3'
+                },
+                {
+                    image: require('../assets/img/fototorres.jpg'),
+                    title: 'Torres del Paine',
+                    description: 'Descripción 3'
+                },
+            ]
+        }
+    }
+}
 </script>
 
 <style scoped>
-.container-origin {
-    background-color: #1C161D;
-    padding: 20px;
-    color: white;
+/* Centrar el carrusel en la pantalla */
+#carouselExample {
+    width: 60%;
+    margin: 0 auto;
 }
 
-.carousel-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 0;
-}
-
-.carousel-inner img {
+/* Asegurarse de que las imágenes ocupen el 100% del ancho del carrusel */
+.carousel-item img {
+    width: 100%;
     height: 400px;
     object-fit: cover;
 }
 
+/* Ajustar el texto de las leyendas */
 .carousel-caption {
-    background: rgba(0, 0, 0, 0.6);
-    padding: 1rem;
-    border-radius: 10px;
-}
-
-.carousel-caption h5,
-.carousel-caption p {
-    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
 }
 </style>
