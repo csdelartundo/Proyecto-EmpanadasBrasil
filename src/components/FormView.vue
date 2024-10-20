@@ -1,79 +1,76 @@
 <template>
-    <div class="container mt-5">
-        <h1 class="text-center mb-4">Formulario de Contacto</h1>
+    <div id="FormSection">
+        <div class="container mt-5">
+            <h1 class="text-center mb-4">Formulario de Contacto</h1>
+            <form @submit.prevent="handleSubmit" class="needs-validation" novalidate>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nombre</label>
+                    <input v-model="name" type="text" id="name" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input v-model="email" type="email" id="email" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Mensaje</label>
+                    <textarea v-model="message" id="message" rows="4" class="form-control" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
 
-        <form @submit.prevent="handleSubmit" class="needs-validation" novalidate>
-            <div class="mb-3">
-                <label for="name" class="form-label">Nombre</label>
-                <input v-model="name" type="text" id="name" class="form-control" required />
-                <div class="invalid-feedback">Por favor, ingresa tu nombre.</div>
+            <!-- Botón de WhatsApp independiente -->
+            <div class="text-center mt-4">
+                <button @click="sendWhatsAppMessage" class="btn btn-success">
+                    Contactar por WhatsApp
+                    <i class="fa-brands fa-whatsapp fa-lg" style="color: #fafafa;"></i>
+                </button>
             </div>
 
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input v-model="email" type="email" id="email" class="form-control" required />
-                <div class="invalid-feedback">Por favor, ingresa un correo electrónico válido.</div>
-            </div>
-
-            <div class="mb-3">
-                <label for="message" class="form-label">Mensaje</label>
-                <textarea v-model="message" id="message" rows="4" class="form-control" required></textarea>
-                <div class="invalid-feedback">Por favor, ingresa un mensaje.</div>
-            </div>
-
-            <button type="submit" class="btn btn-primary">Enviar</button>
-        </form>
-
-        <!-- Botón de WhatsApp independiente -->
-        <div class="text-center mt-4">
-            <button @click="sendWhatsAppMessage" class="btn btn-success">
-                Contactar por WhatsApp
-            </button>
-        </div>
-
-        <!-- Modal de éxito -->
-        <div v-if="showModal" class="modal fade show" style="display: block;" tabindex="-1"
-            aria-labelledby="successModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="successModalLabel">Formulario enviado</h5>
-                        <button type="button" class="btn-close" @click="closeModal"></button>
+            <!-- Modales-->
+            <div class="modalSection mt-5 text-dark">
+                <!-- Modal de éxito -->
+                <div v-if="showModal" class="modal fade show" style="display: block;" tabindex="-1"
+                    aria-labelledby="successModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="successModalLabel">Formulario enviado</h5>
+                                <button type="button" class="btn-close" @click="closeModal"></button>
+                            </div>
+                            <div class="modal-body">
+                                ¡Formulario enviado con éxito!<br />
+                                Nombre: {{ name }}<br />
+                                Email: {{ email }}<br />
+                                Mensaje: {{ message }}
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" @click="closeModal">Cerrar</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="modal-body">
-                        ¡Formulario enviado con éxito!<br />
-                        Nombre: {{ name }}<br />
-                        Email: {{ email }}<br />
-                        Mensaje: {{ message }}
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" @click="closeModal">Cerrar</button>
+                </div>
+
+                <!-- Modal de error -->
+                <div v-if="showErrorModal" class="modal fade show" style="display: block;" tabindex="-1"
+                    aria-labelledby="errorModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="errorModalLabel">Error</h5>
+                                <button type="button" class="btn-close" @click="closeErrorModal"></button>
+                            </div>
+                            <div class="modal-body p-3">
+                                Por favor, completa todos los campos del formulario.
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" @click="closeErrorModal">Cerrar</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Modal de error (falta completar campos) -->
-        <div v-if="showErrorModal" class="modal fade show" style="display: block;" tabindex="-1"
-            aria-labelledby="errorModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="errorModalLabel">Error</h5>
-                        <button type="button" class="btn-close" @click="closeErrorModal"></button>
-                    </div>
-                    <div class="modal-body">
-                        Por favor, completa todos los campos del formulario.
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" @click="closeErrorModal">Cerrar</button>
-                    </div>
-                </div>
-            </div>
         </div>
-
-        <!-- Background overlay to simulate Bootstrap's modal backdrop -->
-        <div v-if="showModal || showErrorModal" class="modal-backdrop fade show"></div>
     </div>
 </template>
 
@@ -84,47 +81,71 @@ export default {
             name: "",
             email: "",
             message: "",
-            showModal: false,      // Controla el modal de éxito
-            showErrorModal: false, // Controla el modal de error
+            showModal: false,
+            showErrorModal: false,
         };
     },
     methods: {
-        // Manejar el envío del formulario
         handleSubmit() {
             if (!this.name || !this.email || !this.message) {
-                // Mostrar el modal de error si faltan campos
                 this.showErrorModal = true;
             } else {
-                // Mostrar el modal de éxito cuando el formulario se envía correctamente
                 this.showModal = true;
             }
         },
-        // Cerrar el modal de éxito
         closeModal() {
             this.showModal = false;
         },
-        // Cerrar el modal de error
         closeErrorModal() {
             this.showErrorModal = false;
         },
-        // Enviar mensaje de WhatsApp independiente del formulario
         sendWhatsAppMessage() {
-            const whatsappNumber = "+5582981530022"; // Número de WhatsApp proporcionado
+            const whatsappNumber = "+5582981530022";
             const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Hola! Me gustaría hacer una consulta.`;
             window.open(whatsappUrl, "_blank");
-        }
-    }
+        },
+    },
 };
 </script>
 
 <style scoped>
+#FormSection {
+    background-image: url(../assets/img/patagonia.jpg);
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+    padding: 50px 0;
+}
+
+#FormSection::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
 .container {
-    max-width: 600px;
     padding: 50px;
+    max-width: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+
+.modal-dialog {
+    margin-top: 150px; 
 }
 
 .modal-backdrop {
-    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
@@ -136,6 +157,5 @@ export default {
 .modal {
     z-index: 1050;
     display: block;
-    /* Necesario para que funcione con v-if */
 }
 </style>
