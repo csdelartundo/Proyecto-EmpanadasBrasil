@@ -1,5 +1,22 @@
+<script setup>
+import FormView from '@/components/FormView.vue';
+</script>
+
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+    <div class="container-fluid">
+        <FormView/>   
+    </div>
+    
 </template>
+<style>
+.container-fluid{
+    padding: 20px;
+    background-color: #38324A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+
+}
+</style>
