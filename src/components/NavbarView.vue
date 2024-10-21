@@ -39,18 +39,16 @@
 export default {
     data() {
         return {
-            isMenuOpen: false, // Controlamos el estado del menú
+            isMenuOpen: false, 
         };
     },
     methods: {
         closeMenu() {
-            this.isMenuOpen = false; // Cierra el menú cuando se selecciona una opción
+            this.isMenuOpen = false; 
         },
     },
 };
 </script>
-
-
 
 <style scoped>
 .logo {
@@ -58,13 +56,45 @@ export default {
     height: auto;
 }
 
-/* Aseguramos que el navbar esté fijo en la parte superior */
 .navbar {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     background-color: #353531;
 }
+
 .collapse.show {
     display: block !important;
 }
 
+/* Estilo para los enlaces del menú */
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Línea debajo del enlace al hacer hover */
+.nav-link::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ff9505; /* Color de la línea */
+    transition: width 0.3s;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+/* Al pasar el mouse, la línea se expande */
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Cambio de color del texto al pasar el mouse */
+.nav-link:hover {
+    color: #ff9505;
+}
 </style>
+

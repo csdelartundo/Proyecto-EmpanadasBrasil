@@ -3,24 +3,29 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <p>&copy; 2024 Empanadas Chilenas. Todos los derechos reservados.</p>
+                    <p>&copy; 2024 El Chileno. Todos los derechos reservados.</p>
                 </div>
-                <div class="col-md-6 text-md-end">
-                    <a href="#" class="text-white me-3">Política de Privacidad</a>
-                    <a href="#" class="text-white me-3">Términos de Servicio</a>
-                    <a href="#" class="text-white me-3">Contacto</a>
+                <div class="col-md-6 text-center">
+                    <a @click="toInstagram"><i class="fab fa-instagram fa-2x text-white me-4"></i></a>
+                    <a @click="toWhatsapp"><i class="fab fa-whatsapp fa-2x text-white"></i></a>
                 </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col text-center">
-                    <a href="#"><i class="fab fa-instagram fa-2x text-white me-4"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp fa-2x text-white"></i></a>
-                </div>
+                
             </div>
         </div>
     </footer>
 </template>
-
+<script>
+export default {
+    methods: {
+        toInstagram() {
+            window.open('https://www.instagram.com/el.chileno.tematico/', '_blank');
+        },
+        toWhatsapp() {
+            window.open('https://wa.me/5582981530022', '_blank');
+        }
+    }
+}
+</script>
 <style scoped>
 .footer {
     background-color: #353531;

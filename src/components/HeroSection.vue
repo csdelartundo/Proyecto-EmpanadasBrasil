@@ -9,7 +9,7 @@
                         Disfruta de nuestras empanadas típicas, elaboradas con ingredientes frescos y llenos de sabor.
                     </h4>
                     <div class="image-button-wrapper d-flex flex-column align-items-center mt-4">
-                        <button type="button" class="btn-hero">Ver el menú</button>
+                        <button @click="toOrder" type="button" class="btn-hero">Ver el menú</button>
                         <img class="logohome" src="@/assets/img/huge-notbg.png" alt="Logo">
                     </div>
                 </div>
@@ -17,6 +17,16 @@
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    methods: {
+        toOrder() {
+            this.$router.push('/productos');
+        }
+    }
+}
+</script>
 
 
 <style scoped>
@@ -48,7 +58,8 @@
     padding: 2rem;
 }
 .slogan{
-    color: #ff9505
+    color: #ff9505;
+    font-size: 20px;
 }
 
 .image-button-wrapper {
@@ -68,6 +79,13 @@
     padding: 0.75rem 2rem;
     border-radius: 30px;
     background-color: #ff9505;
+    color: white;
+}
+
+.btn-hero:hover {
+    background-color: #ff6e00;
+    transform: scale(1.05);
+
 }
 
 @media (max-width: 768px) {
