@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img class="logo" src="@/assets/img/elchileno-removebg-preview.png" alt="Logo" />
@@ -61,6 +61,7 @@ export default {
 /* Aseguramos que el navbar esté fijo en la parte superior */
 .navbar {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #353531;
 }
 .collapse.show {
     display: block !important;

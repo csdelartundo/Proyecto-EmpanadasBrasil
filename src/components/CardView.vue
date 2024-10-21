@@ -6,19 +6,20 @@
             ingredientes cuidadosamente seleccionados.
         </p>
         <div class="row">
-            <div v-for="(item, index) in cards" :key="index" class="col-12 col-md-6 col-lg-4 mb-4 d-flex">
+            <div v-for="(item, index) in cards" :key="index"
+                class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
                 <div class="card">
                     <div class="image-box">
                         <img :src="item.image" :alt="item.title" class="card-img-top" />
                     </div>
                     <div class="content d-flex flex-column justify-content-center align-items-center p-3">
                         <h3>{{ item.title }}</h3>
-                        <p>{{ item.description }}</p>
-                        <a href="#" class="btn btn-warning btn-md mt-auto">Hacer Pedido</a>
+                        <p>{{ item.description }}</p>    
                     </div>
                 </div>
             </div>
         </div>
+        <button @click="orderWhatsApp" class="floating-btn">Ver el menú</button>
     </div>
 </template>
 
@@ -30,91 +31,109 @@ export default {
                 {
                     title: "Empanada de Pino",
                     description:
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non pulvinar nisi, at ultricies felis. Donec vel velit at mauris elementum pellentesque.",
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non pulvinar nisi, at ultricies felis.",
                     image: require('@/assets/img/empanada.jpg'),
                 },
                 {
                     title: "Empanada de Pollo",
                     description:
-                        "Sed vel ligula vel justo iaculis aliquet. Sed vel dolor non urna sodales lobortis. Sed convallis, dolor vitae commodo consectetur, metus diam ultrices lectus.",
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non pulvinar nisi, at ultricies felis.",
                     image: require('@/assets/img/emppollo.jpg'),
                 },
                 {
                     title: "Empanada de Palmito",
                     description:
-                        "Proin vel ante non ligula facilisis consectetur. Nulla facilisi. Sed convallis, dolor vitae commodo consectetur, metus diam ultrices lectus.",
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non pulvinar nisi, at ultricies felis.",
                     image: require('@/assets/img/emppalmito.jpg'),
                 },
             ],
         };
+        
     },
+    methods: {
+        orderWhatsApp() {
+            const whatsappNumber = "+5582981530022";
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Hola! Quiero hacer un pedido.`;
+            window.open(whatsappUrl, "_blank");
+        },
+    }
 };
 </script>
 
 <style scoped>
 .container {
-    background-color: #46434e;
-    padding: 50px;
+    margin-top: 100px;
+    text-align: center;
+    max-width: 900px;
 }
 
 .card-title {
-    color: white;
     font-size: 2rem;
-    text-align: center;
     margin-bottom: 20px;
-    margin-top: 40px;
+    color: #ec4e20;
+    font-weight: bold;
 }
 
 .card-subtitle {
-    color: white;
     font-size: 1.2rem;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.card {
-    border-radius: 8px;
-    overflow: hidden;
-    flex-grow: 1;
-    background-color: #1C161D;
-    transition: transform 0.3s ease-in-out; /* Animación suave para el escalado */
-}
-
-/* Escala levemente más pequeña en pantallas grandes */
-@media (min-width: 992px) {
-    .card {
-        transform: scale(0.9); /* Reduce levemente el tamaño en pantallas grandes */
-        max-width: 450px; /* Limita el ancho en pantallas grandes */
-    }
-}
-
-/* En pantallas pequeñas, el tamaño es 100% del contenedor */
-@media (max-width: 991px) {
-    .card {
-        width: 100%; /* Ocupa todo el ancho en pantallas pequeñas */
-    }
-}
-
-.image-box img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    transition: 0.5s ease-in-out;
-}
-
-.content {
-    color: white;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.content h3 {
+    color: #555;
     margin-bottom: 10px;
 }
 
-.content p {
+.card {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    box-shadow: 0px 1px 13px rgba(236, 78, 32, 0.3);
+    padding: 0.5em;
+    transition: all 120ms ease-in-out;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.image-box {
+    width: 100%;
+    height: 200px;
+    background-color: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.content {
+    padding: 15px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+/* Botón centrado debajo de las tarjetas */
+.floating-btn {
+    background-color: #ff9505;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 1.25rem;
+    margin-top: 10px;
     margin-bottom: 20px;
+    cursor: pointer;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.floating-btn:hover {
+    background-color: #ff7f05;
+    transform: scale(1.05);
 }
 </style>

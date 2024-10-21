@@ -15,7 +15,7 @@
                     <label for="message" class="form-label">Mensaje</label>
                     <textarea v-model="message" id="message" rows="4" class="form-control" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <button type="submit" class="btn btn-form">Enviar</button>
             </form>
 
             <!-- Botón de WhatsApp independiente -->
@@ -44,7 +44,7 @@
                                 Mensaje: {{ message }}
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" @click="closeModal">Cerrar</button>
+                                <button type="button" class="btn btn-modal" @click="closeModal">Cerrar</button>
                             </div>
                         </div>
                     </div>
@@ -63,7 +63,7 @@
                                 Por favor, completa todos los campos del formulario.
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" @click="closeErrorModal">Cerrar</button>
+                                <button type="button" class="btn-modal" @click="closeErrorModal">Cerrar</button>
                             </div>
                         </div>
                     </div>
@@ -157,5 +157,29 @@ export default {
 .modal {
     z-index: 1050;
     display: block;
+}
+.btn-form{
+    background-color: #016fb9;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.btn-modal{
+    background-color: #ec4e20;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
 }
 </style>

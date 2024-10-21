@@ -23,7 +23,7 @@
 
 <style scoped>
 .footer {
-    background-color: #1C161D;
+    background-color: #353531;
 }
 
 .footer a {

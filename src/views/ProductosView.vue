@@ -19,7 +19,6 @@ export default {
 .prod-container{
   margin-top: 20px;
   text-align: center;
-  background: #38324A;
   height: auto;
   padding: 0px;
 }

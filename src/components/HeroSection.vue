@@ -4,12 +4,12 @@
             <div class="row justify-content-center align-items-center w-100 position-relative">
                 <div class="col-md-8 text-center">
                     <h1 class="mt-5 pt-5 text-white fw-bold">Empanadas Chilenas</h1>
-                    <p class="slogan text-warning">¡Auténtico sabor chileno en cada bocado!</p>
+                    <p class="slogan">¡Auténtico sabor chileno en cada bocado!</p>
                     <h4 class="mt-3 text-white fw-light">
                         Disfruta de nuestras empanadas típicas, elaboradas con ingredientes frescos y llenos de sabor.
                     </h4>
                     <div class="image-button-wrapper d-flex flex-column align-items-center mt-4">
-                        <button type="button" class="btn btn-warning">Ver el menú</button>
+                        <button type="button" class="btn-hero">Ver el menú</button>
                         <img class="logohome" src="@/assets/img/huge-notbg.png" alt="Logo">
                     </div>
                 </div>
@@ -47,6 +47,9 @@
     text-align: center;
     padding: 2rem;
 }
+.slogan{
+    color: #ff9505
+}
 
 .image-button-wrapper {
     z-index: 2;
@@ -60,10 +63,11 @@
 }
 
 /* Estilos del botón */
-.btn-warning {
+.btn-hero {
     font-size: 1.25rem;
     padding: 0.75rem 2rem;
     border-radius: 30px;
+    background-color: #ff9505;
 }
 
 @media (max-width: 768px) {
