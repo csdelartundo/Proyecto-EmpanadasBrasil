@@ -35,7 +35,7 @@ export default {
     background-image: url('../assets/img/tabla-mpanadas.jpg');
     background-size: cover;
     background-position: center;
-    height: auto;
+    height: 800px;
     padding: 50px;
 }
 

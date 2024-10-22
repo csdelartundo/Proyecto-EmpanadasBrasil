@@ -115,6 +115,7 @@ export default {
     position: relative;
     z-index: 1;
     padding: 50px 0;
+    height: 900px;
 }
 
 #FormSection::before {
