@@ -2,7 +2,7 @@
     <div id="FormSection">
         <div class="container mt-5">
             <h1 class="text-center mb-4">Formulario de Contacto</h1>
-            <form @submit.prevent="handleSubmit" class="needs-validation" novalidate>
+            <form @submit.prevent="handleSubmit" class="needs-validation" novalidate ref="form">
                 <div class="mb-3">
                     <label for="name" class="form-label">Nombre</label>
                     <input v-model="name" type="text" id="name" class="form-control" required />
@@ -39,9 +39,6 @@
                             </div>
                             <div class="modal-body">
                                 ¡Formulario enviado con éxito!<br />
-                                Nombre: {{ name }}<br />
-                                Email: {{ email }}<br />
-                                Mensaje: {{ message }}
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-modal" @click="closeModal">Cerrar</button>
@@ -75,6 +72,8 @@
 </template>
 
 <script>
+import emailjs from '@emailjs/browser';
+
 export default {
     data() {
         return {
@@ -90,7 +89,12 @@ export default {
             if (!this.name || !this.email || !this.message) {
                 this.showErrorModal = true;
             } else {
-                this.showModal = true;
+                this.sendEmail();  // Llama al método para enviar el email
+                this.showModal = true;  // Muestra el modal de éxito
+                // Limpiar los campos del formulario
+                this.name = "";
+                this.email = "";
+                this.message = "";
             }
         },
         closeModal() {
@@ -104,9 +108,23 @@ export default {
             const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Hola! Me gustaría hacer una consulta.`;
             window.open(whatsappUrl, "_blank");
         },
+        sendEmail() {
+            const templateParams = {
+                name: this.name,
+                email: this.email,
+                message: this.message,
+            };
+            emailjs.send('service_1sxiwfl', 'template_rrsq69h', templateParams, 'oL6wTfkqW7PSSHKm_')
+                .then(() => {
+                    console.log('SUCCESS!');
+                }, (error) => {
+                    console.log('FAILED...', error.text);
+                });
+        },
     },
-};
+}
 </script>
+
 
 <style scoped>
 #FormSection {
@@ -143,7 +161,7 @@ export default {
 }
 
 .modal-dialog {
-    margin-top: 150px; 
+    margin-top: 150px;
 }
 
 .modal-backdrop {
@@ -159,7 +177,8 @@ export default {
     z-index: 1050;
     display: block;
 }
-.btn-form{
+
+.btn-form {
     background-color: #016fb9;
     color: white;
     border: none;
@@ -171,7 +190,8 @@ export default {
     margin: 4px 2px;
     cursor: pointer;
 }
-.btn-modal{
+
+.btn-modal {
     background-color: #ec4e20;
     color: white;
     border: none;
