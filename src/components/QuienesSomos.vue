@@ -1,6 +1,6 @@
 <template>
-    <div class="container-carousel">
-        <h1>¿Quienes Somos?</h1>
+    <div class="container">
+        <h1>¿Quiénes Somos?</h1>
         <p>En El Chileno, nos especializamos en traer el auténtico sabor de las empanadas chilenas a Maceió, Alagoas.
             Con una combinación perfecta entre la tradición chilena y la frescura de los ingredientes brasileños,
             nuestras empanadas reflejan lo mejor de ambas culturas.
@@ -8,31 +8,12 @@
             Cristian, chileno, y Lúcy, brasileña, unimos nuestras pasiones para ofrecer una experiencia única, donde
             cada empanada es elaborada con dedicación y sabor auténtico. ¡Ven y descubre el verdadero sabor de Chile con
             un toque brasileño!</p>
-            <h5>A continuacion, te dejamos unos destinos imperdibles de Chile!</h5>
-    </div>
-    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div v-for="(item, index) in carouselItems" :key="index"
-                :class="['carousel-item', { active: index === 0 }]">
-                <img :src="item.image" class="d-block w-100 img-fluid" :alt="item.title">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>{{ item.title }}</h5>
-                    <p>{{ item.description }}</p>
-                </div>
-                <div class="carousel-caption-below">
-                    <h5>{{ item.title }}</h5>
-                    <p>{{ item.description }}</p>
-                </div>
+        <h5>A continuación, te dejamos unos destinos imperdibles de Chile!</h5>
+        <div class="collage">
+            <div v-for="(item, index) in collageItems" :key="index" class="item">
+                <img :src="item.image" :alt="item.title">
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
     </div>
 </template>
 
@@ -40,47 +21,51 @@
 export default {
     data() {
         return {
-            carouselItems: [
+            collageItems: [
                 {
-                    image: require('../assets/img/fotosanpedro.jpg'),
-                    title: 'San Pedro de Atacama',
-                    description: 'Descripción 1'
+                    image: require('../assets/img/valparaiso.jpg'),
+                    title: 'Valparaiso'
                 },
                 {
                     image: require('../assets/img/fotovalleelqui.jpg'),
-                    title: 'Valle del Elqui',
-                    description: 'Descripción 2'
+                    title: 'Valle del Elqui'
                 },
                 {
                     image: require('../assets/img/fotosietetazas.jpg'),
-                    title: 'Parque Nacional Siete Tazas',
-                    description: 'Descripción 3'
+                    title: 'Parque Nacional Siete Tazas'
+                },
+                {
+                    image: require('../assets/img/sanpedro2.jpg'),
+                    title: 'San Pedro de Atacama'
+                },
+                {
+                    image: require('../assets/img/templo.jpg'),
+                    title: 'Templo Bahai'
                 },
                 {
                     image: require('../assets/img/fotoislapascua.jpg'),
-                    title: 'Isla de Pascua',
-                    description: 'Descripción 3'
+                    title: 'Isla de Pascua'
                 },
                 {
                     image: require('../assets/img/fotochillan.jpg'),
-                    title: 'Termas de Chillán',
-                    description: 'Descripción 3'
+                    title: 'Termas de Chillán'
                 },
                 {
                     image: require('../assets/img/fotopucon.jpg'),
-                    title: 'Pucon',
-                    description: 'Descripción 3'
+                    title: 'Pucón'
                 },
                 {
                     image: require('../assets/img/fotosalto.jpg'),
-                    title: 'Salto del Petrohue',
-                    description: 'Descripción 3'
+                    title: 'Salto del Petrohué'
                 },
                 {
                     image: require('../assets/img/fototorres.jpg'),
-                    title: 'Torres del Paine',
-                    description: 'Descripción 3'
+                    title: 'Torres del Paine'
                 },
+                {
+                    image: require('../assets/img/santiago.jpg'),
+                    title: 'Santiago de Chile'
+                }
             ]
         }
     }
@@ -88,70 +73,49 @@ export default {
 </script>
 
 <style scoped>
-/* Centrar el carrusel en la pantalla */
-.container-carousel {
+.container {
     text-align: center;
-    padding-top: 100px;
-    color: #fff;
+    margin-top: 20px;
 }
 
-#carouselExample {
-    width: 60%;
+.collage {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 10px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
-/* Asegurarse de que las imágenes ocupen el 100% del ancho del carrusel y mantener calidad */
-.carousel-item img {
+.collage .item {
+    position: relative;
+    overflow: hidden;
+}
+
+.collage .item img {
     width: 100%;
-    height: 500px;
-    object-fit: cover; /* Asegura que las imágenes cubran el área sin distorsión */
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    border-radius: 10px;
 }
 
-/* Texto superpuesto sobre la imagen (pantallas grandes) */
-.carousel-caption {
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    right: 0;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px;
-    border-radius: 5px;
-    color: #fff;
+.collage .item img:hover {
+    transform: scale(1.1);
+    border-radius: 10px;
 }
 
-/* Texto debajo de la imagen (oculto en pantallas grandes) */
-.carousel-caption-below {
-    display: none;
+/* Personaliza el tamaño de algunas imágenes */
+.collage .item:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 1;
 }
 
-/* Media query para dispositivos móviles */
-@media (max-width: 768px) {
-    /* Carrusel ocupa todo el ancho en móviles */
-    #carouselExample {
-        width: 100%;
-    }
+.collage .item:nth-child(3) {
+    grid-row: span 1;
+}
 
-    /* Ajusta la altura de la imagen en móviles */
-    .carousel-item img {
-        height: 300px;
-        object-fit: cover;
-    }
-
-    /* Esconder el texto superpuesto en móviles */
-    .carousel-caption {
-        display: none;
-    }
-
-    /* Mostrar el texto debajo de la imagen en móviles */
-    .carousel-caption-below {
-        display: block;
-        text-align: center;
-        padding: 10px;
-        background-color: rgba(0, 0, 0, 0.5);
-        color: #fff;
-        border-radius: 5px;
-        margin-top: 10px;
-    }
+.collage .item:nth-child(5) {
+    grid-column: span 1;
 }
 </style>

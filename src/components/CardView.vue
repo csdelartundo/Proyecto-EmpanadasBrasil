@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div>
-        <button @click="orderWhatsApp" class="floating-btn">Ver el menú</button>
+        <button @click="orderWhatsApp" class="floating-btn">Hacer pedido</button>
     </div>
 </template>
 

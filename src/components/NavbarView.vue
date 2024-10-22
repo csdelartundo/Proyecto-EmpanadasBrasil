@@ -96,5 +96,8 @@ export default {
 .nav-link:hover {
     color: #ff9505;
 }
+.container {
+    max-width: 800px;
+}
 </style>
 
