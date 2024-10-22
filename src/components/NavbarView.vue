@@ -58,7 +58,7 @@ export default {
 
 .navbar {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    background-color: #353531;
+    background-color: #2C2B28;
 }
 
 .collapse.show {
@@ -80,7 +80,7 @@ export default {
     display: block;
     width: 0;
     height: 2px;
-    background: #ff9505; /* Color de la línea */
+    background: #F18B19; /* Color de la línea */
     transition: width 0.3s;
     position: absolute;
     left: 0;
@@ -94,7 +94,7 @@ export default {
 
 /* Cambio de color del texto al pasar el mouse */
 .nav-link:hover {
-    color: #ff9505;
+    color: #F18B19;
 }
 .container {
     max-width: 800px;

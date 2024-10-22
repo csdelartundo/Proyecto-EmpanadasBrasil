@@ -1,17 +1,30 @@
 <template>
     <div class="container">
         <h1>¿Quiénes Somos?</h1>
-        <p>En El Chileno, nos especializamos en traer el auténtico sabor de las empanadas chilenas a Maceió, Alagoas.
-            Con una combinación perfecta entre la tradición chilena y la frescura de los ingredientes brasileños,
-            nuestras empanadas reflejan lo mejor de ambas culturas.
+        <div class="text-center">
+            <p>En <b>El Chileno</b>, fusionamos lo mejor de la tradición chilena y los ingredientes brasileños para ofrecer
+                empanadas auténticas. ¡Cada bocado es una invitación a descubrir el
+                verdadero sabor de Chile!</p>
+        </div>
 
-            Cristian, chileno, y Lúcy, brasileña, unimos nuestras pasiones para ofrecer una experiencia única, donde
-            cada empanada es elaborada con dedicación y sabor auténtico. ¡Ven y descubre el verdadero sabor de Chile con
-            un toque brasileño!</p>
-        <h5>A continuación, te dejamos unos destinos imperdibles de Chile!</h5>
+        <!-- Segunda fila con texto a la izquierda e imagen a la derecha -->
+        <div class="about-section">
+            <div class="text-section">
+                <p><b>Cristian, chileno, y Lúcy, brasileña</b>, combinan sus pasiones para crear una experiencia única. Ven a
+                    probar nuestras empanadas y descubre Chile a través de sus sabores, con un toque especial de Brasil.
+                </p>
+            </div>
+            <div class="image">
+                <img class="img-person" src="../assets/img/fotochileno2.png" alt="">
+            </div>
+        </div>
+
+        <h5>A continuación, te mostramos algunos de los destinos imperdibles de Chile, para que sigas explorando su
+            cultura y paisajes únicos.</h5>
         <div class="collage">
             <div v-for="(item, index) in collageItems" :key="index" class="item">
                 <img :src="item.image" :alt="item.title">
+                <div class="title-overlay">{{ item.title }}</div>
             </div>
         </div>
     </div>
@@ -75,9 +88,40 @@ export default {
 <style scoped>
 .container {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 100px;
+    max-width: 800px;
+    color: #463A2B;
 }
 
+.img-person {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+/* Flexbox para alinear texto a la izquierda e imagen a la derecha */
+.about-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.about-section .text-section {
+    flex: 1;
+    text-align: left;
+}
+
+.about-section .image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* Grilla de imágenes */
 .collage {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -85,6 +129,7 @@ export default {
     gap: 10px;
     max-width: 800px;
     margin: 0 auto;
+    margin-top: 20px;
 }
 
 .collage .item {
@@ -117,5 +162,43 @@ export default {
 
 .collage .item:nth-child(5) {
     grid-column: span 1;
+}
+/* Estilo para mostrar el título sobre la imagen */
+.collage .item .title-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.2); /* Fondo oscuro semi-transparente */
+    color: white;
+    padding: 10px;
+    text-align: left;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 0 0 10px 10px;
+    font-size: 20px;
+}
+
+.collage .item:hover .title-overlay {
+    opacity: 1; /* Mostrar el título al hacer hover */
+}
+/* Estilos para móviles */
+@media (max-width: 768px) {
+    .collage .item .title-overlay {
+        opacity: 1; /* Mantener el título visible en móviles */
+        font-size: 12px; /* Ajustar el tamaño de la fuente si es necesario */
+        color: white;
+    }
+    .about-section {
+        flex-direction: column; /* Cambia la dirección a columna en móviles */
+    }
+
+    .about-section .text-section {
+        text-align: center; /* Centra el texto en móviles */
+    }
+
+    .img-person {
+        margin-bottom: 20px; /* Añade espacio entre la imagen y el texto en móviles */
+    }
 }
 </style>

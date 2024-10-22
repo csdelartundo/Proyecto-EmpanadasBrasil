@@ -130,7 +130,7 @@ export default {
 
 .container {
     padding: 50px;
-    max-width: 1000px;
+    max-width: 800px;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -64,7 +64,7 @@ export default {
 .container {
     margin-top: 100px;
     text-align: center;
-    max-width: 900px;
+    max-width: 850px;
 }
 
 .card-title {
@@ -76,7 +76,7 @@ export default {
 
 .card-subtitle {
     font-size: 1.2rem;
-    color: #555;
+    color: #2C2B28;
     margin-bottom: 10px;
 }
 
@@ -87,7 +87,7 @@ export default {
     display: flex;
     flex-direction: column;
     background: white;
-    box-shadow: 0px 1px 13px rgba(236, 78, 32, 0.3);
+    box-shadow: 0px 1px 13px rgba(70, 58, 43, 0.3);
     padding: 0.5em;
     transition: all 120ms ease-in-out;
     align-items: center;

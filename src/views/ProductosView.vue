@@ -21,6 +21,7 @@ export default {
   text-align: center;
   height: auto;
   padding: 0px;
+  background: #FEFEFA;
 }
 </style>
 

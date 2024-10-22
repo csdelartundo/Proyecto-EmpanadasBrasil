@@ -1,19 +1,17 @@
 <template>
     <footer class="footer bg-dark text-white p-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <p>&copy; 2024 El Chileno. Todos los derechos reservados.</p>
-                </div>
-                <div class="col-md-6 text-center">
-                    <a @click="toInstagram"><i class="fab fa-instagram fa-2x text-white me-4"></i></a>
-                    <a @click="toWhatsapp"><i class="fab fa-whatsapp fa-2x text-white"></i></a>
-                </div>
-                
+        <div class="footer-container">
+            <div class="footer-left">
+                <p>&copy; 2024 El Chileno. Todos los derechos reservados.</p>
+            </div>
+            <div class="footer-right">
+                <a @click="toInstagram"><i class="fab fa-instagram fa-2x text-white me-4"></i></a>
+                <a @click="toWhatsapp"><i class="fab fa-whatsapp fa-2x text-white"></i></a>
             </div>
         </div>
     </footer>
 </template>
+
 <script>
 export default {
     methods: {
@@ -29,6 +27,26 @@ export default {
 <style scoped>
 .footer {
     background-color: #353531;
+    padding: 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px; /* Limita el ancho máximo a 800px */
+    margin: 0 auto; /* Centra el contenido */
+    width: 100%; /* Asegura que ocupe el 100% del ancho disponible */
+}
+
+.footer-left {
+    flex: 1;
+}
+
+.footer-right {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 .footer a {

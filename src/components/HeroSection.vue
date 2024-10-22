@@ -58,7 +58,7 @@ export default {
     padding: 2rem;
 }
 .slogan{
-    color: #ff9505;
+    color: #D6BCA8;
     font-size: 20px;
 }
 
@@ -78,7 +78,7 @@ export default {
     font-size: 1.25rem;
     padding: 0.75rem 2rem;
     border-radius: 30px;
-    background-color: #ff9505;
+    background-color: #F18B19;
     color: white;
 }
 

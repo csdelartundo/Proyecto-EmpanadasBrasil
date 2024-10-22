@@ -11,7 +11,7 @@ import QuienesSomos from '@/components/QuienesSomos.vue';
 <style>
 .container-fluid{
     padding: 20px;
-    background-color: #38324A;
+    background-color: #D6BCA8;
     display: flex;
     justify-content: center;
     align-items: center;
