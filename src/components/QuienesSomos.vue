@@ -1,17 +1,14 @@
 <template>
     <div class="container">
-        <h1>¿Quiénes Somos?</h1>
+        <h1>Quem somos nós?</h1>
         <div class="text-center">
-            <p>En <b>El Chileno</b>, fusionamos lo mejor de la tradición chilena y los ingredientes brasileños para ofrecer
-                empanadas auténticas. ¡Cada bocado es una invitación a descubrir el
-                verdadero sabor de Chile!</p>
+            <p>No <b>El Chileno</b>, fundimos o melhor da tradição chilena e ingredientes brasileiros para oferecer autênticas empanadas. Cada mordida é um convite para descobrir o verdadeiro sabor do Chile!</p>
         </div>
 
         <!-- Segunda fila con texto a la izquierda e imagen a la derecha -->
         <div class="about-section">
             <div class="text-section">
-                <p><b>Cristian, chileno, y Lúcy, brasileña</b>, combinan sus pasiones para crear una experiencia única. Ven a
-                    probar nuestras empanadas y descubre Chile a través de sus sabores, con un toque especial de Brasil.
+                <p><b>Cristian, chileno, e Lúcy, brasileira,</b> unem suas paixões para criar uma experiência única. Venha experimentar nossas empanadas e descobrir o Chile através de seus sabores, com um toque especial do Brasil.
                 </p>
             </div>
             <div class="image">
@@ -19,8 +16,7 @@
             </div>
         </div>
 
-        <h5>A continuación, te mostramos algunos de los destinos imperdibles de Chile, para que sigas explorando su
-            cultura y paisajes únicos.</h5>
+        <h5>Abaixo mostramos alguns dos destinos imperdíveis do Chile para que você possa continuar explorando sua cultura e paisagens únicas.</h5>
         <div class="collage">
             <div v-for="(item, index) in collageItems" :key="index" class="item">
                 <img :src="item.image" :alt="item.title">
@@ -41,15 +37,15 @@ export default {
                 },
                 {
                     image: require('../assets/img/fotovalleelqui.jpg'),
-                    title: 'Valle del Elqui'
+                    title: 'Vale de Elqui'
                 },
                 {
                     image: require('../assets/img/fotosietetazas.jpg'),
-                    title: 'Parque Nacional Siete Tazas'
+                    title: 'Parque Nacional das Sete Taças'
                 },
                 {
                     image: require('../assets/img/sanpedro2.jpg'),
-                    title: 'San Pedro de Atacama'
+                    title: 'São Pedro do Atacama'
                 },
                 {
                     image: require('../assets/img/templo.jpg'),
@@ -57,11 +53,11 @@ export default {
                 },
                 {
                     image: require('../assets/img/fotoislapascua.jpg'),
-                    title: 'Isla de Pascua'
+                    title: 'Ilha de Páscoa'
                 },
                 {
                     image: require('../assets/img/fotochillan.jpg'),
-                    title: 'Termas de Chillán'
+                    title: 'Termas do Chillán'
                 },
                 {
                     image: require('../assets/img/fotopucon.jpg'),
@@ -69,15 +65,15 @@ export default {
                 },
                 {
                     image: require('../assets/img/fotosalto.jpg'),
-                    title: 'Salto del Petrohué'
+                    title: 'Salto do Petrohué'
                 },
                 {
                     image: require('../assets/img/fototorres.jpg'),
-                    title: 'Torres del Paine'
+                    title: 'Torres do Paine'
                 },
                 {
                     image: require('../assets/img/santiago.jpg'),
-                    title: 'Santiago de Chile'
+                    title: 'Santiago do Chile'
                 }
             ]
         }
@@ -101,7 +97,6 @@ export default {
     object-fit: cover;
 }
 
-/* Flexbox para alinear texto a la izquierda e imagen a la derecha */
 .about-section {
     display: flex;
     align-items: center;
@@ -169,7 +164,7 @@ export default {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.2); /* Fondo oscuro semi-transparente */
+    background-color: rgba(0, 0, 0, 0.2); 
     color: white;
     padding: 10px;
     text-align: left;
@@ -180,25 +175,25 @@ export default {
 }
 
 .collage .item:hover .title-overlay {
-    opacity: 1; /* Mostrar el título al hacer hover */
+    opacity: 1; 
 }
 /* Estilos para móviles */
 @media (max-width: 768px) {
     .collage .item .title-overlay {
-        opacity: 1; /* Mantener el título visible en móviles */
-        font-size: 12px; /* Ajustar el tamaño de la fuente si es necesario */
+        opacity: 1; 
+        font-size: 12px; 
         color: white;
     }
     .about-section {
-        flex-direction: column; /* Cambia la dirección a columna en móviles */
+        flex-direction: column;
     }
 
     .about-section .text-section {
-        text-align: center; /* Centra el texto en móviles */
+        text-align: center; 
     }
 
     .img-person {
-        margin-bottom: 20px; /* Añade espacio entre la imagen y el texto en móviles */
+        margin-bottom: 20px; 
     }
 }
 </style>

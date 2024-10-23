@@ -3,13 +3,13 @@
         <div class="container text-center d-flex flex-column justify-content-center align-items-center">
             <div class="row justify-content-center align-items-center w-100 position-relative">
                 <div class="col-md-8 text-center">
-                    <h1 class="mt-5 pt-5 text-white fw-bold">Empanadas Chilenas</h1>
-                    <p class="slogan">¡Auténtico sabor chileno en cada bocado!</p>
+                    <h1 class="mt-5 pt-5 text-white fw-bold">Empanadas tradicionais Chilenas</h1>
+                    <p class="slogan">¡O sabor autêntico do Chile!</p>
                     <h4 class="mt-3 text-white fw-light">
-                        Disfruta de nuestras empanadas típicas, elaboradas con ingredientes frescos y llenos de sabor.
+                        Saboreie as nossas típicas empanadas, com o toque especial dos ingredientes brasileiros.
                     </h4>
                     <div class="image-button-wrapper d-flex flex-column align-items-center mt-4">
-                        <button @click="toOrder" type="button" class="btn-hero">Ver el menú</button>
+                        <button @click="toOrder" type="button" class="btn-hero">Veja o cardápio</button>
                         <img class="logohome" src="@/assets/img/huge-notbg.png" alt="Logo">
                     </div>
                 </div>

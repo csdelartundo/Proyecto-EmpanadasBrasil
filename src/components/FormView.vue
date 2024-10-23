@@ -1,10 +1,10 @@
 <template>
     <div id="FormSection">
         <div class="container mt-5">
-            <h1 class="text-center mb-4">Formulario de Contacto</h1>
+            <h1 class="text-center mb-4">Formulário de Contato</h1>
             <form @submit.prevent="handleSubmit" class="needs-validation" novalidate ref="form">
                 <div class="mb-3">
-                    <label for="name" class="form-label">Nombre</label>
+                    <label for="name" class="form-label">Nome</label>
                     <input v-model="name" type="text" id="name" class="form-control" required />
                 </div>
                 <div class="mb-3">
@@ -12,16 +12,16 @@
                     <input v-model="email" type="email" id="email" class="form-control" required />
                 </div>
                 <div class="mb-3">
-                    <label for="message" class="form-label">Mensaje</label>
+                    <label for="message" class="form-label">Mensagem</label>
                     <textarea v-model="message" id="message" rows="4" class="form-control" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-form">Enviar</button>
+                <button type="submit" class="btn btn-form">Envie</button>
             </form>
 
             <!-- Botón de WhatsApp independiente -->
             <div class="text-center mt-4">
                 <button @click="sendWhatsAppMessage" class="btn btn-success">
-                    Contactar por WhatsApp
+                    Entre em contato por Whatsapp
                     <i class="fa-brands fa-whatsapp fa-lg" style="color: #fafafa;"></i>
                 </button>
             </div>
@@ -34,14 +34,14 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="successModalLabel">Formulario enviado</h5>
+                                <h5 class="modal-title" id="successModalLabel">Formulário enviado</h5>
                                 <button type="button" class="btn-close" @click="closeModal"></button>
                             </div>
                             <div class="modal-body">
-                                ¡Formulario enviado con éxito!<br />
+                                ¡Formulário enviado com sucesso!<br />
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-modal" @click="closeModal">Cerrar</button>
+                                <button type="button" class="btn btn-modal" @click="closeModal">Fechar</button>
                             </div>
                         </div>
                     </div>
@@ -53,14 +53,14 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="errorModalLabel">Error</h5>
+                                <h5 class="modal-title" id="errorModalLabel">Erro</h5>
                                 <button type="button" class="btn-close" @click="closeErrorModal"></button>
                             </div>
                             <div class="modal-body p-3">
-                                Por favor, completa todos los campos del formulario.
+                                Preencha todos os campos do formulário.
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn-modal" @click="closeErrorModal">Cerrar</button>
+                                <button type="button" class="btn-modal" @click="closeErrorModal">Fechar</button>
                             </div>
                         </div>
                     </div>
@@ -89,9 +89,8 @@ export default {
             if (!this.name || !this.email || !this.message) {
                 this.showErrorModal = true;
             } else {
-                this.sendEmail();  // Llama al método para enviar el email
-                this.showModal = true;  // Muestra el modal de éxito
-                // Limpiar los campos del formulario
+                this.sendEmail();  
+                this.showModal = true; 
                 this.name = "";
                 this.email = "";
                 this.message = "";
@@ -105,10 +104,10 @@ export default {
         },
         sendWhatsAppMessage() {
             const whatsappNumber = "+5582981530022";
-            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Hola! Me gustaría hacer una consulta.`;
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Olá! Quero fazer um pedido`;
             window.open(whatsappUrl, "_blank");
         },
-        sendEmail() {
+        sendEmail() { //funcion para emailJS
             const templateParams = {
                 name: this.name,
                 email: this.email,

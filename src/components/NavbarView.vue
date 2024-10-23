@@ -18,16 +18,16 @@
             <div class="collapse navbar-collapse" :class="{ show: isMenuOpen }" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item" @click="closeMenu">
-                        <router-link class="nav-link" to="/">Inicio</router-link>
+                        <router-link class="nav-link" to="/">Início</router-link>
                     </li>
                     <li class="nav-item" @click="closeMenu">
-                        <router-link class="nav-link" to="/productos">Productos</router-link>
+                        <router-link class="nav-link" to="/productos">Produtos</router-link>
                     </li>
                     <li class="nav-item" @click="closeMenu">
-                        <router-link class="nav-link" to="/origen">Nuestro Origen</router-link>
+                        <router-link class="nav-link" to="/origen">Nossa Origem</router-link>
                     </li>
                     <li class="nav-item" @click="closeMenu">
-                        <router-link class="nav-link" to="/contacto">Contacto</router-link>
+                        <router-link class="nav-link" to="/contacto">Contato</router-link>
                     </li>
                 </ul>
             </div>
@@ -65,7 +65,6 @@ export default {
     display: block !important;
 }
 
-/* Estilo para los enlaces del menú */
 .nav-link {
     color: #ffffff;
     text-decoration: none;
@@ -74,25 +73,22 @@ export default {
     transition: color 0.3s ease;
 }
 
-/* Línea debajo del enlace al hacer hover */
 .nav-link::after {
     content: "";
     display: block;
     width: 0;
     height: 2px;
-    background: #F18B19; /* Color de la línea */
+    background: #F18B19; 
     transition: width 0.3s;
     position: absolute;
     left: 0;
     bottom: 0;
 }
 
-/* Al pasar el mouse, la línea se expande */
 .nav-link:hover::after {
     width: 100%;
 }
 
-/* Cambio de color del texto al pasar el mouse */
 .nav-link:hover {
     color: #F18B19;
 }

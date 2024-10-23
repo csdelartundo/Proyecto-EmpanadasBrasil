@@ -1,9 +1,8 @@
 <template>
     <div class="container">
-        <h1 class="card-title">Conoce nuestras variedades!</h1>
+        <h1 class="card-title">¡Conheça nossas variedades!</h1>
         <p class="card-subtitle">
-            Disfruta nuestras deliciosas empanadas, sin colorantes artificiales e
-            ingredientes cuidadosamente seleccionados.
+            Desfrute das nossas deliciosas empanadas, com ingredientes 100% naturais, sem corantes artificiais, sem conservantes; teoria do baixo teor de sódio; teoria baixa da gordura saturada.
         </p>
         <div class="row">
             <div v-for="(item, index) in cards" :key="index"
@@ -19,7 +18,7 @@
                 </div>
             </div>
         </div>
-        <button @click="orderWhatsApp" class="floating-btn">Hacer pedido</button>
+        <button @click="orderWhatsApp" class="floating-btn">Fazer pedido</button>
     </div>
 </template>
 
@@ -29,21 +28,21 @@ export default {
         return {
             cards: [
                 {
-                    title: "Empanada de Pino",
+                    title: "Empanada de Pinho",
                     description:
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non pulvinar nisi, at ultricies felis.",
+                        "Uma explosão de sabores tradicionais chilenos, recheada com suculenta carne bovina, cebola dourada, azeitonas e um pedaço de ovo cozido, tudo envolto em uma massa crocante e dourada. Um clássico irresistível que celebra a autenticidade!",
                     image: require('@/assets/img/empanada.jpg'),
                 },
                 {
-                    title: "Empanada de Pollo",
+                    title: "Empanada de Frango",
                     description:
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non pulvinar nisi, at ultricies felis.",
+                        "Uma deliciosa combinação de tenro frango desfiado, cebola temperada, azeitonas e um toque de tempero, tudo envolto em uma massa dourada assada. Cada mordida é um abraço de sabor caseiro e tradição!",
                     image: require('@/assets/img/emppollo.jpg'),
                 },
                 {
                     title: "Empanada de Palmito",
                     description:
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non pulvinar nisi, at ultricies felis.",
+                        "Uma experiência macia e cremosa, recheada com palmito fresco, queijo derretido e especiarias, envolta em uma massa dourada e crocante. Uma opção vegetariana cheia de sabor e textura que você não vai querer perder!",
                     image: require('@/assets/img/emppalmito.jpg'),
                 },
             ],
@@ -53,7 +52,7 @@ export default {
     methods: {
         orderWhatsApp() {
             const whatsappNumber = "+5582981530022";
-            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Hola! Quiero hacer un pedido.`;
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Olá! Quero fazer um pedido.`;
             window.open(whatsappUrl, "_blank");
         },
     }

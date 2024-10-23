@@ -2,7 +2,7 @@
     <footer class="footer bg-dark text-white p-4">
         <div class="footer-container">
             <div class="footer-left">
-                <p>&copy; 2024 El Chileno. Todos los derechos reservados.</p>
+                <p>&copy; 2024 El Chileno. Todos os direitos reservados.</p>
             </div>
             <div class="footer-right">
                 <a @click="toInstagram"><i class="fab fa-instagram fa-2x text-white me-4"></i></a>
@@ -34,9 +34,9 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 800px; /* Limita el ancho máximo a 800px */
-    margin: 0 auto; /* Centra el contenido */
-    width: 100%; /* Asegura que ocupe el 100% del ancho disponible */
+    max-width: 800px; 
+    margin: 0 auto; 
+    width: 100%; 
 }
 
 .footer-left {
